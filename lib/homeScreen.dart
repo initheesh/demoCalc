@@ -23,7 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
     NumberButton(
         num: "7",
         fun: () {
-          print("fuvk");
+          setState(() {
+            
+          });
         }),
     NumberButton(num: "8", fun: () {}),
     NumberButton(num: "9", fun: () {}),
@@ -59,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               TextField(
                 controller: _textController,
-                decoration: InputDecoration(),
+                decoration: InputDecoration(border: OutlineInputBorder()),
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
