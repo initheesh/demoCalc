@@ -1,15 +1,53 @@
+import 'package:calculator/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+TextEditingController _textController = TextEditingController();
+
 class _HomeScreenState extends State<HomeScreen> {
+  List<Widget> rowList1 = [
+    NumberButton(num: "C", fun: () {}),
+    NumberButton(num: "%", fun: () {}),
+    NumberButton(num: "Back", fun: () {}),
+    NumberButton(num: "/", fun: () {}),
+  ];
+  List<Widget> rowList2 = [
+    NumberButton(
+        num: "7",
+        fun: () {
+          print("fuvk");
+        }),
+    NumberButton(num: "8", fun: () {}),
+    NumberButton(num: "9", fun: () {}),
+    NumberButton(num: "*", fun: () {}),
+  ];
+  List<Widget> rowList3 = [
+    NumberButton(num: "4", fun: () {}),
+    NumberButton(num: "5", fun: () {}),
+    NumberButton(num: "6", fun: () {}),
+    NumberButton(num: "-", fun: () {}),
+  ];
+  List<Widget> rowList4 = [
+    NumberButton(num: "1", fun: () {}),
+    NumberButton(num: "2", fun: () {}),
+    NumberButton(num: "3", fun: () {}),
+    NumberButton(num: "+", fun: () {}),
+  ];
+  List<Widget> rowList5 = [
+    NumberButton(num: "00", fun: () {}),
+    NumberButton(num: "0", fun: () {}),
+    NumberButton(num: ".", fun: () {}),
+    NumberButton(num: "=", fun: () {}),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,147 +57,28 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextField(),
+              TextField(
+                controller: _textController,
+                decoration: InputDecoration(),
+              ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("C"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("%"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("Back"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("/"))),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
+                      children: rowList1,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("7"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("8"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("9"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("*"))),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
+                      children: rowList2,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("4"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("5"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("6"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("+"))),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
+                      children: rowList3,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("1"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("2"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("3"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("-"))),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
+                      children: rowList4,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("00"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("0"))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("."))),
-                        SizedBox(
-                            height: 55,
-                            width: 85,
-                            child: ElevatedButton(
-                                onPressed: () {}, child: Text("="))),
-                      ],
+                      children: rowList5,
                     ),
                     SizedBox(
                       height: 10,
