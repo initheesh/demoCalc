@@ -14,40 +14,107 @@ TextEditingController _textController = TextEditingController();
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> rowList1 = [
-    NumberButton(num: "C", fun: () {}),
+    NumberButton(
+        num: "C",
+        fun: () {
+          _textController.text = "";
+        }),
     NumberButton(num: "%", fun: () {}),
-    NumberButton(num: "Back", fun: () {}),
-    NumberButton(num: "/", fun: () {}),
+    NumberButton(
+        num: "Back",
+        fun: () {
+          _textController.text = _textController.text
+              .substring(0, _textController.text.length - 1);
+        }),
+    NumberButton(
+        num: "/",
+        fun: () {
+          _textController.text = _textController.text + "/";
+        }),
   ];
   List<Widget> rowList2 = [
     NumberButton(
         num: "7",
         fun: () {
-          setState(() {
-            
-          });
+          _textController.text = _textController.text + 7.toString();
         }),
-    NumberButton(num: "8", fun: () {}),
-    NumberButton(num: "9", fun: () {}),
-    NumberButton(num: "*", fun: () {}),
+    NumberButton(
+        num: "8",
+        fun: () {
+          _textController.text = _textController.text + 8.toString();
+        }),
+    NumberButton(
+        num: "9",
+        fun: () {
+          _textController.text = _textController.text + 9.toString();
+        }),
+    NumberButton(
+        num: "*",
+        fun: () {
+          _textController.text = _textController.text + "*";
+        }),
   ];
   List<Widget> rowList3 = [
-    NumberButton(num: "4", fun: () {}),
-    NumberButton(num: "5", fun: () {}),
-    NumberButton(num: "6", fun: () {}),
-    NumberButton(num: "-", fun: () {}),
+    NumberButton(
+        num: "4",
+        fun: () {
+          _textController.text = _textController.text + 4.toString();
+        }),
+    NumberButton(
+        num: "5",
+        fun: () {
+          _textController.text = _textController.text + 5.toString();
+        }),
+    NumberButton(
+        num: "6",
+        fun: () {
+          _textController.text = _textController.text + 6.toString();
+        }),
+    NumberButton(
+        num: "-",
+        fun: () {
+          _textController.text = _textController.text + "-";
+        }),
   ];
   List<Widget> rowList4 = [
-    NumberButton(num: "1", fun: () {}),
-    NumberButton(num: "2", fun: () {}),
-    NumberButton(num: "3", fun: () {}),
-    NumberButton(num: "+", fun: () {}),
+    NumberButton(
+        num: "1",
+        fun: () {
+          _textController.text = _textController.text + 1.toString();
+        }),
+    NumberButton(
+        num: "2",
+        fun: () {
+          _textController.text = _textController.text + 2.toString();
+        }),
+    NumberButton(
+        num: "3",
+        fun: () {
+          _textController.text = _textController.text + 3.toString();
+        }),
+    NumberButton(
+        num: "+",
+        fun: () {
+          _textController.text = _textController.text + "+";
+        }),
   ];
   List<Widget> rowList5 = [
     NumberButton(num: "00", fun: () {}),
-    NumberButton(num: "0", fun: () {}),
-    NumberButton(num: ".", fun: () {}),
-    NumberButton(num: "=", fun: () {}),
+    NumberButton(
+        num: "0",
+        fun: () {
+          _textController.text = _textController.text + 0.toString();
+        }),
+    NumberButton(
+        num: ".",
+        fun: () {
+          _textController.text = _textController.text + ".";
+        }),
+    NumberButton(
+        num: "=",
+        fun: () {
+          _textController.text = "Poda myre";
+        }),
   ];
 
   @override
@@ -59,9 +126,14 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              SizedBox(
+                height: 50,
+              ),
               TextField(
                 controller: _textController,
-                decoration: InputDecoration(border: OutlineInputBorder()),
+                textAlign: TextAlign.center,
+                readOnly: true,
+                decoration: InputDecoration(),
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
